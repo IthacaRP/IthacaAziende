@@ -37,7 +37,7 @@ public class OnInventoryClickCassa implements Listener {
             return;
         }
         if (e.getSlot() == Visualizza.getSlot()){
-            Menu menu = new Menu(IthacaAziende.plugin, casseStorage);
+            Menu menu = new Menu(IthacaAziende.plugin);
             menu.openMenu(player, casseStorage.getID(OnPlayerInteractCassa.getIDCassa.get(player)));
         }
     }

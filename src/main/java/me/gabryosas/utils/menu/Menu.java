@@ -1,5 +1,6 @@
 package me.gabryosas.utils.menu;
 
+import me.gabryosas.IthacaAziende;
 import me.gabryosas.listeners.OnPlayerInteractCassa;
 import me.gabryosas.storage.CasseStorage;
 import me.gabryosas.utils.ConfigUtils;
@@ -27,17 +28,16 @@ public class Menu implements Listener {
      **/
 
     private HashMap<Player, Integer> page;
-    private CasseStorage casseStorage;
     private JavaPlugin plugin;
 
-    public Menu(JavaPlugin plugin, CasseStorage casseStorage) {
+    public Menu(JavaPlugin plugin) {
         page = new HashMap<>();
         this.plugin = plugin;
-        this.casseStorage = casseStorage;
         plugin.getServer().getPluginManager().registerEvents(this, plugin);
     }
 
     public void openMenu(Player player, String randomID) {
+        CasseStorage casseStorage = new CasseStorage(IthacaAziende.plugin);
         List<String> transazioni = casseStorage.getTransazioni(randomID);
         if (transazioni.isEmpty()) {
             player.sendMessage(ConfigUtils.ERROR_LOAD_SCONTRINI);
@@ -49,6 +49,7 @@ public class Menu implements Listener {
     }
 
     public void openMenuPage(Player player, String randomID, int currentPage, int itemsPerPage) {
+        CasseStorage casseStorage = new CasseStorage(IthacaAziende.plugin);
         List<String> transazioni = casseStorage.getTransazioniPaginate(randomID, currentPage, itemsPerPage);
         Inventory inventory = Bukkit.createInventory(null, 27, "Transazioni - Pagina " + currentPage);
         for (String transactionID : transazioni) {
@@ -69,6 +70,7 @@ public class Menu implements Listener {
 
     @EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
+        CasseStorage casseStorage = new CasseStorage(IthacaAziende.plugin);
         if (event.getView().getTitle().startsWith("Transazioni - Pagina")) {
             event.setCancelled(true);
             Player player = (Player) event.getWhoClicked();

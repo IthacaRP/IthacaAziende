@@ -40,7 +40,7 @@ public final class IthacaAziende extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new OnPlayerInteractCassa(), this);
         getServer().getPluginManager().registerEvents(new OnInventoryClickCassa(), this);
         getServer().getPluginManager().registerEvents(new OnInventoryClickPlayerSelect(), this);
-        getServer().getPluginManager().registerEvents(new Menu(this, casseStorage), this);
+        getServer().getPluginManager().registerEvents(new Menu(this), this);
     }
     public void registerCommands(){
         this.getCommand("aziende").setExecutor(new Aziende());
