@@ -1,0 +1,16 @@
+name: IthacaAziende
+version: '${project.version}'
+main: me.gabryosas.IthacaAziende
+api-version: '1.16'
+authors: [GabryOsas]
+description: Plugin che implementa le funzioni base aziendali
+depend:
+  - Vault
+  - LuckPerms
+commands:
+  aziende:
+    aliases:
+      - azienda
+  stipedio:
+    aliases:
+      - paghetta

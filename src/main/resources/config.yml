@@ -1,0 +1,137 @@
+Settings:
+  Prefix: "&#084cfb&lI&#165afb&lt&#2468fb&lh&#3176fc&la&#3f84fc&lc&#4d92fc&la&#5ba0fc&lA&#68adfc&lz&#76bbfc&li&#84c9fd&le&#92d7fd&ln&#9fe5fd&ld&#adf3fd&le &8|"
+  Distance: 10
+Items:
+  cassa-gui: #Per favore non modificare questo nome
+    Name: "Cassa %azienda%" #Per evitare problemi non impostate il nome della cassa subito con %azienda% altrimenti il tutto non funziona grazie :D
+    Max-Slot: 27
+    Items:
+      gestisci-fondi:
+        Slot: 11
+        Item: PAPER
+        Name: "&aGestisci Fondi"
+        Custom-Model-Data: 1
+        Lore:
+          - "&7Clicca per gestire i fondi."
+      crea-scontrino:
+        Slot: 13
+        Item: PAPER
+        Name: "&aCrea scontrino"
+        Custom-Model-Data: 2
+        Lore:
+          - "&7Clicca per creare uno scontrino."
+      visualizza-transazioni:
+        Slot: 15
+        Item: PAPER
+        Name: "&aVisualizza Transazioni"
+        Custom-Model-Data: 3
+        Lore:
+         - "&7Clicca per visualizzare le transazioni"
+  scontrino-gui:
+    Name-1: "Seleziona un giocatore."
+    Distance: 10
+    Max-Slot: 9
+    Name-2: "Inserisci oggetti."
+    Name-3: "Inserisci prezzo."
+    Scontrino:
+      Name: "&fScontrino &e%azienda%"
+      Item: PAPER
+      Custom-Model-Data: 1
+      Lore:
+        - "&6Data: &e%data%"
+        - "&6Cliente: &e%cliente%"
+        - "&6Autore: &e%autore%"
+        - "&6Prezzo: &e%prezzo%"
+        - "&6Oggetti: &e%oggetti%"
+    Player-GUI:
+      Prefix-Color: "&6" #Solo colori
+      Lore:
+        - "&7Clicca per selezionare."
+  ispeziona:
+    Scontrini:
+      Name: "&aTransazione # &fAutore: %autore%"
+      Item: PAPER
+      Custom-Model-Data: 1
+      Lore:
+        - "&ePrezzo: &f%prezzo%"
+        - "&eOggetti: &f%oggetti%"
+        - "&eData: &f%data%"
+        - "&eID: &f%id%" #Questo parametro è necessario altrimenti la gui non verrà caricata in modo corretto
+    Successiva:
+      Name: "&aPagina successiva"
+      Item: ARROW
+      Custom-Model-Data: 1
+      Slot: 26
+      Lore:
+        - "&7Cliccami per andare a pagina successiva!"
+    Precedente:
+      Name: "&cPagina precedente"
+      Item: ARROW
+      Custom-Model-Data: 1
+      Slot: 25
+      Lore:
+        - "&7Cliccami per andare a pagina precedente!"
+  oggetti:
+    cassa:
+      Item: PRISMARINE_STAIRS
+      Name: "&cCassa"
+      Custom-Model-Data: 5
+      Lore:
+        - "&7Posiziona il blocco!"
+        - "&7Ciaoo"
+Messages:
+  Azienda:
+    Send-Money: "%prefix% &7Soldi nel conto della borsa &6%azienda%: %soldi%€"
+  Fail:
+    Give-Fail: "%prefix% &cOggetto non trovato."
+    Fail-Delete: "%prefix% &cAzienda non trovata."
+    Fail-Create: "%prefix% &cL'azienda esiste già."
+    Fail-Prelevare: "%prefix% %cNon ci sono abbastanza soldi nella borsa!"
+    Fail-Depositare: "%prefix% &cNon hai abbastanza soldi!"
+  Actions:
+    On-Prelevare: "%prefix% &aHai prelevato con successo &e%soldi%"
+    On-Depositare: "%prefix% &aHai depositato con successo &e%soldi%"
+  Error:
+    Error-Player: "%prefix% &cIl giocatore non fa parte della tua azienda!"
+    Error-Add-Player: "%prefix% &cIl giocatore selezionato fa già parte della tua azienda!"
+    Error-Player-Select: "%prefix% &cNon puoi auto-inviarti il contratto lavorativo!"
+    Error-Distance: "%prefix% &cIl giocatore selezionato è troppo lontano!"
+    Error-Accept: "%prefix% &cNon hai richieste in sospeso..."
+    Error-Settings-ID: "%prefix% &cQuesta cassa è già impostata!"
+    Error-Number: "%prefix% &cNumero non valido."
+    Error-Settings: "%prefix% &cBlocco non valido."
+    Error-Scontrini-Load: "%prefix% &cNon ci sono transazioni per questa cassa."
+  Give-Item: "%prefix% &aOggetto givvato con successo!"
+  Create-Azienda: "%prefix% &aAzienda creata con successo!"
+  Delete-Azienda: "%prefix% &aAzienda eliminata con successo!"
+  No-Permission: "%prefix% &cNon fai parte di questa azienda!"
+  Offline-Player: "%prefix% &cIl giocatore risulta offline."
+  Add-Player: "%prefix% &aHai accettato con successo la richiesta di assunzione!"
+  Payment-Player: "%prefix% &aHai inviato con successo lo stipedio di &e%soldi% &aal giocatore &e%player%!"
+  Payment-Target: "%prefix% &aHai ricevuto con successo lo stipedio!"
+  Request-Send: "%prefix% &aContratto lavorativo inviato con successo!"
+  Depex-Send: "%prefix% &aHai licenziato con successo il giocatore dalla tua azienda!"
+  Depex-Target: "%prefix% &cSei stato licenziato."
+  Settings-Cassa: "%prefix% &aCassa impostata con successo!"
+  Create-Scontrino: "%prefix% &aScontrino emesso con successo!"
+  Contratto:
+    Time: 45 #in secondi
+    Message:
+      - "&aHai un nuovo contratto lavorativo!"
+      - "&7Il contratto scadrà fra %time% secondi!"
+      - "&aClicca il messaggio per accettare il contratto!"
+  List-Commands:
+   - "&7Lista dei comandi disponibili:"
+   - "&b/azienda borsa (nome azienda)"
+   - "&b/azienda deposita (nome azienda) (soldi)"
+   - "&b/azienda preleva (nome azienda) (soldi)"
+   - "&b/azienda assumi (nome azienda) (giocatore) (ruolo)"
+   - "&b/azienda licenzia (nome azienda) (giocatore)"
+   - "&6/azienda give (oggetto)"
+   - "&6/azienda imposta (nome azienda)"
+   - "&6/azienda crea (nome azienda)"
+   - "&6/azienda rimuovi (nome azienda)"
+   - "&6/azienda reload"
+  Stipendio-Commands:
+    - "&7Lista dei comandi disponibili:"
+    - "&b/stipedio (azienda) (giocatore) (soldi)"
