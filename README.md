@@ -2,4 +2,4 @@
 - Parametro reload (Classe Aziende).
 - Computer finanza.
 - Fondi cassa.
-- Fix errori nelle pagine (Transazioni).
+- ~~Fix errori nelle pagine (Transazioni).~~
