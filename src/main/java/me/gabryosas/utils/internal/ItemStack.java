@@ -11,8 +11,9 @@ public class ItemStack {
     /**
      Metodo che può tornare utile per creare un ItemStack.
      **/
-    public static org.bukkit.inventory.ItemStack createCostumItem(Material material, String name, int modeldata, List<String> lore){
+    public static org.bukkit.inventory.ItemStack createCostumItem(Material material, String name, int modeldata, List<String> lore, int amount){
         org.bukkit.inventory.ItemStack itemStack = new org.bukkit.inventory.ItemStack(material);
+        itemStack.setAmount(amount);
         ItemMeta itemMeta = itemStack.getItemMeta();
         itemMeta.setCustomModelData(modeldata);
         itemMeta.setLore(lore);

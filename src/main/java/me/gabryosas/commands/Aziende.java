@@ -104,7 +104,7 @@ public class Aziende implements CommandExecutor {
                 }
                 player.sendMessage(ConfigUtils.GIVE_ITEM);
                 if (args[1].equalsIgnoreCase("cassa")){
-                    player.getInventory().addItem(ItemStack.createCostumItem(Cassa.getMaterial(), Cassa.getName(), Cassa.getModelData(), Cassa.getLore()));
+                    player.getInventory().addItem(ItemStack.createCostumItem(Cassa.getMaterial(), Cassa.getName(), Cassa.getModelData(), Cassa.getLore(), 1));
                     return true;
                 }
             }

@@ -49,7 +49,7 @@ public class OnInventoryClickPlayerSelect implements Listener {
                     player.sendMessage(ConfigUtils.ERROR_NUMBER);
                     return AnvilGUI.Response.close();
                 }
-                player.getInventory().addItem(me.gabryosas.utils.internal.ItemStack.createCostumItem(ScontrinoGUI.getMaterialScontrino(), ScontrinoGUI.getName(OnPlayerInteractCassa.aziendaHashMap.get(player)),ScontrinoGUI.getModelData(), ScontrinoGUI.getLore(Date.getDate(), target.getName(), player.getName(), Integer.parseInt(prezzo), oggetti)));
+                player.getInventory().addItem(me.gabryosas.utils.internal.ItemStack.createCostumItem(ScontrinoGUI.getMaterialScontrino(), ScontrinoGUI.getName(OnPlayerInteractCassa.aziendaHashMap.get(player)),ScontrinoGUI.getModelData(), ScontrinoGUI.getLore(Date.getDate(), target.getName(), player.getName(), Integer.parseInt(prezzo), oggetti), 2));
                 casseStorage.addTransazione(casseStorage.getID(OnPlayerInteractCassa.getIDCassa.get(player)), player.getName(), Double.parseDouble(prezzo), oggetti, Date.getDate());
                 player.sendMessage(ConfigUtils.CREATE_SCONTRINO);
                 return AnvilGUI.Response.close();

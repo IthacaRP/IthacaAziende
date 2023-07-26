@@ -17,9 +17,9 @@ public class Inventory {
      **/
     public static org.bukkit.inventory.Inventory createInventoryBorsa(String name){
         org.bukkit.inventory.Inventory inventory = Bukkit.createInventory(null, IthacaAziende.plugin.getConfig().getInt("Items.cassa-gui.Max-Slot"), IthacaAziende.plugin.getConfig().getString("Items.cassa-gui.Name").replace("%azienda%", name));
-        inventory.setItem(Visualizza.getSlot(), ItemStack.createCostumItem(Visualizza.getMaterial(), Visualizza.getName(), Visualizza.getModelData(), Visualizza.getLore()));
-        inventory.setItem(Scontrino.getSlot(), ItemStack.createCostumItem(Scontrino.getMaterial(), Scontrino.getName(), Scontrino.getModelData(), Scontrino.getLore()));
-        inventory.setItem(Fondi.getSlot(), ItemStack.createCostumItem(Fondi.getMaterial(), Fondi.getName(), Fondi.getModelData(), Fondi.getLore()));
+        inventory.setItem(Visualizza.getSlot(), ItemStack.createCostumItem(Visualizza.getMaterial(), Visualizza.getName(), Visualizza.getModelData(), Visualizza.getLore(), 1));
+        inventory.setItem(Scontrino.getSlot(), ItemStack.createCostumItem(Scontrino.getMaterial(), Scontrino.getName(), Scontrino.getModelData(), Scontrino.getLore(), 1));
+        inventory.setItem(Fondi.getSlot(), ItemStack.createCostumItem(Fondi.getMaterial(), Fondi.getName(), Fondi.getModelData(), Fondi.getLore(), 1));
         return inventory;
     }
     public static org.bukkit.inventory.Inventory createSelectInventory(Player player, String name, int distance, int maxslot) {
