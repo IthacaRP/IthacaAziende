@@ -8,6 +8,7 @@ import me.gabryosas.utils.objects.Cassa;
 import me.gabryosas.utils.internal.Inventory;
 import me.gabryosas.utils.internal.ItemStack;
 import me.gabryosas.utils.vault.VaultUtils;
+import org.apache.commons.io.FileUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
@@ -16,6 +17,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 
 public class Aziende implements CommandExecutor {
@@ -45,6 +48,14 @@ public class Aziende implements CommandExecutor {
                 }
                 LuckPermsAPI.addPlayerToGroup(player, addContratto.get(player));
                 addContratto.remove(player);
+            }
+            if (args[0].equalsIgnoreCase("reload")){
+                if (!player.hasPermission("azienda.admin")){
+                    player.sendMessage(ConfigUtils.NO_PERMISSION);
+                    return true;
+                }
+                player.sendMessage(ConfigUtils.RELOAD_MESSAGE);
+                reloadConfig();
             }
         }
         if (args.length == 2){
@@ -224,5 +235,16 @@ public class Aziende implements CommandExecutor {
             }
         }
         return true;
+    }
+    static void reloadConfig(){
+        try {
+            File originalConfig = new File(IthacaAziende.plugin.getDataFolder(), "config.yml");
+            File backupConfig = new File(IthacaAziende.plugin.getDataFolder(), "config_backup.yml");
+            FileUtils.copyFile(originalConfig, backupConfig);
+            FileUtils.copyFile(backupConfig, originalConfig);
+            IthacaAziende.plugin.reloadConfig();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

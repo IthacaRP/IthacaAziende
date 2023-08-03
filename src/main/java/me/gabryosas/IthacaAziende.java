@@ -2,8 +2,10 @@ package me.gabryosas;
 
 import me.gabryosas.commands.Aziende;
 import me.gabryosas.commands.Stipendio;
+import me.gabryosas.listeners.OnBreakCassa;
 import me.gabryosas.listeners.OnPlayerInteractCassa;
 import me.gabryosas.listeners.inventory.OnInventoryClickCassa;
+import me.gabryosas.listeners.inventory.OnInventoryClickFondi;
 import me.gabryosas.listeners.inventory.OnInventoryClickPlayerSelect;
 import me.gabryosas.storage.AziendeStorage;
 import me.gabryosas.storage.CasseStorage;
@@ -41,6 +43,8 @@ public final class IthacaAziende extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new OnInventoryClickCassa(), this);
         getServer().getPluginManager().registerEvents(new OnInventoryClickPlayerSelect(), this);
         getServer().getPluginManager().registerEvents(new Menu(this), this);
+        getServer().getPluginManager().registerEvents(new OnInventoryClickFondi(), this);
+        getServer().getPluginManager().registerEvents(new OnBreakCassa(), this);
     }
     public void registerCommands(){
         this.getCommand("aziende").setExecutor(new Aziende());

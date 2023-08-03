@@ -45,6 +45,7 @@ public class ConfigUtils {
     public static String ERROR_LOAD_SCONTRINI = me.gabryosas.utils.internal.Color.translateHexColorCodes(IthacaAziende.plugin.getConfig().getString("Messages.Error.Error-Scontrini-Load").replace("%prefix%", PREFIX));
     public static String CREATE_SCONTRINO = me.gabryosas.utils.internal.Color.translateHexColorCodes(IthacaAziende.plugin.getConfig().getString("Messages.Create-Scontrino").replace("%prefix%", PREFIX));
     public static String PAYMENT_TARGET = me.gabryosas.utils.internal.Color.translateHexColorCodes(IthacaAziende.plugin.getConfig().getString("Messages.Payment-Target").replace("%prefix%", PREFIX));
+    public static String RELOAD_MESSAGE = me.gabryosas.utils.internal.Color.translateHexColorCodes(IthacaAziende.plugin.getConfig().getString("Messages.Reload-Message").replace("%prefix%", PREFIX));
     public static String onDepositare(String azienda, int amount) {
         return me.gabryosas.utils.internal.Color.translateHexColorCodes(IthacaAziende.plugin.getConfig().getString("Messages.Actions.On-Depositare").replace("%prefix%", PREFIX).replace("%soldi%", String.valueOf(amount)).replace("%azienda%", azienda.toLowerCase()));
     }

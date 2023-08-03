@@ -2,6 +2,7 @@ package me.gabryosas.listeners.inventory;
 
 import me.gabryosas.IthacaAziende;
 import me.gabryosas.listeners.OnPlayerInteractCassa;
+import me.gabryosas.storage.AziendeStorage;
 import me.gabryosas.storage.CasseStorage;
 import me.gabryosas.utils.internal.Inventory;
 import me.gabryosas.utils.menu.Menu;
@@ -25,11 +26,13 @@ public class OnInventoryClickCassa implements Listener {
     @EventHandler
     public void onInventoryClick(InventoryClickEvent e){
         CasseStorage casseStorage = new CasseStorage(IthacaAziende.plugin);
+        AziendeStorage aziendeStorage = new AziendeStorage(IthacaAziende.plugin);
         Player player = (Player) e.getWhoClicked();
         if (!e.getView().getTitle().startsWith(getNameGUI())) return;
         if (e.getCurrentItem() == null) return;
         e.setCancelled(true);
         if (e.getSlot() == Fondi.getSlot()){
+            player.openInventory(Inventory.createInventoryFondi(casseStorage.getAzienda(OnPlayerInteractCassa.getIDCassa.get(player)), aziendeStorage.getMoney(casseStorage.getAzienda(OnPlayerInteractCassa.getIDCassa.get(player)))));
             return;
         }
         if (e.getSlot() == Scontrino.getSlot()){

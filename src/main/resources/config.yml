@@ -47,6 +47,16 @@ Items:
       Prefix-Color: "&6" #Solo colori
       Lore:
         - "&7Clicca per selezionare."
+  fondi:
+    Name: "Gestisci i fondi."
+    Max-Slot: 27
+    Items:
+      Slot: 13
+      Name: "&aConto borsa: &e%soldi%€"
+      Item: PAPER
+      Custom-Model-Data: 1
+      Lore:
+        - "&7Ecco i soldi della borsa &e%azienda%."
   ispeziona:
     Scontrini:
       Name: "&aTransazione # &fAutore: %autore%"
@@ -78,7 +88,6 @@ Items:
       Custom-Model-Data: 5
       Lore:
         - "&7Posiziona il blocco!"
-        - "&7Ciaoo"
 Messages:
   Azienda:
     Send-Money: "%prefix% &7Soldi nel conto della borsa &6%azienda%: %soldi%€"
@@ -114,6 +123,7 @@ Messages:
   Depex-Target: "%prefix% &cSei stato licenziato."
   Settings-Cassa: "%prefix% &aCassa impostata con successo!"
   Create-Scontrino: "%prefix% &aScontrino emesso con successo!"
+  Reload-Message: "%prefix% &aFile di configurazione ricaricato con successo!"
   Contratto:
     Time: 45 #in secondi
     Message:

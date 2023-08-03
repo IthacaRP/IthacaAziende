@@ -1,10 +1,7 @@
 package me.gabryosas.utils.internal;
 
 import me.gabryosas.IthacaAziende;
-import me.gabryosas.utils.objects.gui.Fondi;
-import me.gabryosas.utils.objects.gui.Scontrino;
-import me.gabryosas.utils.objects.gui.ScontrinoGUI;
-import me.gabryosas.utils.objects.gui.Visualizza;
+import me.gabryosas.utils.objects.gui.*;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
@@ -20,6 +17,11 @@ public class Inventory {
         inventory.setItem(Visualizza.getSlot(), ItemStack.createCostumItem(Visualizza.getMaterial(), Visualizza.getName(), Visualizza.getModelData(), Visualizza.getLore(), 1));
         inventory.setItem(Scontrino.getSlot(), ItemStack.createCostumItem(Scontrino.getMaterial(), Scontrino.getName(), Scontrino.getModelData(), Scontrino.getLore(), 1));
         inventory.setItem(Fondi.getSlot(), ItemStack.createCostumItem(Fondi.getMaterial(), Fondi.getName(), Fondi.getModelData(), Fondi.getLore(), 1));
+        return inventory;
+    }
+    public static org.bukkit.inventory.Inventory createInventoryFondi(String nome, int value){
+        org.bukkit.inventory.Inventory inventory = Bukkit.createInventory(null, FondiGUI.getMaxSlot(), FondiGUI.getName());
+        inventory.setItem(FondiGUI.getSlot(), ItemStack.createCostumItem(FondiGUI.getMaterialItems(), FondiGUI.getNameItems(nome, value), FondiGUI.getModelData(), FondiGUI.getLore(nome, value), 1));
         return inventory;
     }
     public static org.bukkit.inventory.Inventory createSelectInventory(Player player, String name, int distance, int maxslot) {
