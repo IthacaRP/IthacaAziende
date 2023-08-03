@@ -1,5 +1,5 @@
 # LISTA DELLE COSE DA FARE:
-- Parametro reload (Classe Aziende).
+- ~~Parametro reload (Classe Aziende)~~.
 - Computer finanza.
-- Fondi cassa.
+- ~~Fondi cassa~~.
 - ~~Fix errori nelle pagine (Transazioni).~~
