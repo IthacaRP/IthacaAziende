@@ -3,10 +3,12 @@ package me.gabryosas.commands;
 import me.gabryosas.IthacaAziende;
 import me.gabryosas.storage.AziendeStorage;
 import me.gabryosas.storage.CasseStorage;
+import me.gabryosas.storage.ControllaStorage;
 import me.gabryosas.utils.*;
 import me.gabryosas.utils.objects.Cassa;
 import me.gabryosas.utils.internal.Inventory;
 import me.gabryosas.utils.internal.ItemStack;
+import me.gabryosas.utils.objects.computer.Computer;
 import me.gabryosas.utils.vault.VaultUtils;
 import org.apache.commons.io.FileUtils;
 import org.bukkit.Bukkit;
@@ -36,6 +38,7 @@ public class Aziende implements CommandExecutor {
         Player player = (Player) sender;
         AziendeStorage aziendeStorage = new AziendeStorage(IthacaAziende.plugin);
         CasseStorage casseStorage = new CasseStorage(IthacaAziende.plugin);
+        ControllaStorage controllaStorage = new ControllaStorage();
         if (args.length == 0 || args.length >= 5){
             ConfigUtils.getHelpMessage(player);
             return true;
@@ -109,13 +112,17 @@ public class Aziende implements CommandExecutor {
                     player.sendMessage(ConfigUtils.NO_PERMISSION);
                     return true;
                 }
-                if (!args[1].equalsIgnoreCase("cassa")){
+                if (!args[1].equalsIgnoreCase("cassa") && !args[1].equalsIgnoreCase("computer")){
                     player.sendMessage(ConfigUtils.GIVE_FAIL);
                     return true;
                 }
                 player.sendMessage(ConfigUtils.GIVE_ITEM);
                 if (args[1].equalsIgnoreCase("cassa")){
                     player.getInventory().addItem(ItemStack.createCostumItem(Cassa.getMaterial(), Cassa.getName(), Cassa.getModelData(), Cassa.getLore(), 1));
+                    return true;
+                }
+                if (args[1].equalsIgnoreCase("computer")){
+                    player.getInventory().addItem(ItemStack.createCostumItem(Computer.getMaterial(), Computer.getName(), Computer.getModelData(), Computer.getLore(), 1));
                     return true;
                 }
             }
@@ -176,11 +183,12 @@ public class Aziende implements CommandExecutor {
                     player.sendMessage(ConfigUtils.FAIL_DEPOSITARE);
                     return true;
                 }
+                controllaStorage.addControllo(args[1].toLowerCase(), Integer.parseInt(args[2]), player.getName(), "Deposito");
                 VaultUtils.removeMoney(player, Integer.parseInt(args[2]));
                 aziendeStorage.addMoney(args[1].toLowerCase(), Integer.parseInt(args[2]));
                 player.sendMessage(ConfigUtils.onDepositare(args[1], Integer.parseInt(args[2])));
             }
-            if (args[0].equalsIgnoreCase("prelevare")){
+            if (args[0].equalsIgnoreCase("preleva")){
                 if (!player.hasPermission("azienda." + args[1].toLowerCase())){
                     player.sendMessage(ConfigUtils.NO_PERMISSION);
                     return true;
@@ -197,6 +205,7 @@ public class Aziende implements CommandExecutor {
                     player.sendMessage(ConfigUtils.FAIL_PRELEVARE);
                     return true;
                 }
+                controllaStorage.addControllo(args[1].toLowerCase(), Integer.parseInt(args[2]), player.getName(), "Prelevo");
                 VaultUtils.addMoney(player, Integer.parseInt(args[2]));
                 aziendeStorage.removeMoney(args[1].toLowerCase(), Integer.parseInt(args[2]));
                 player.sendMessage(ConfigUtils.onPrelevare(args[1], Integer.parseInt(args[2])));

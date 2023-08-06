@@ -81,11 +81,48 @@ Items:
       Slot: 25
       Lore:
         - "&7Cliccami per andare a pagina precedente!"
+  controllo:
+    Name: "Controllo %azienda%"
+    Name-1: "Computer Finanza"
+    Name-2: "Seleziona l'azienda."
+    Max-Slot: 27
+    azione:
+      Importo: "&eImporto"
+      Deposito: "&eDeposito"
+    oggetti:
+      Successiva:
+        Name: "&aPagina successiva"
+        Item: ARROW
+        Custom-Model-Data: 1
+        Slot: 26
+        Lore:
+          - "&7Cliccami per andare a pagina successiva!"
+      Precedente:
+        Name: "&cPagina precedente"
+        Item: ARROW
+        Custom-Model-Data: 1
+        Slot: 25
+        Lore:
+          - "&7Cliccami per andare a pagina precedente!"
+      Controllo:
+        Name: "&f%id%" #Si prega di aggiungere sempre l'id nell'items
+        Item: PAPER
+        Custom-Model-Data: 1
+        Lore:
+          - "&7Data: &e%data%"
+          - "&7Autore: &e%autore%"
+          - "&7Importo: &e%importo%"
   oggetti:
     cassa:
       Item: PRISMARINE_STAIRS
       Name: "&cCassa"
       Custom-Model-Data: 5
+      Lore:
+        - "&7Posiziona il blocco!"
+    computer:
+      Item: COBWEB
+      Name: "&eComputer Finanza"
+      Custom-Model-Data: 5 #Per i blocchi non funziona quando vengono posizionati (credo)
       Lore:
         - "&7Posiziona il blocco!"
 Messages:

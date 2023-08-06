@@ -4,12 +4,15 @@ import me.gabryosas.commands.Aziende;
 import me.gabryosas.commands.Stipendio;
 import me.gabryosas.listeners.OnBreakCassa;
 import me.gabryosas.listeners.OnPlayerInteractCassa;
+import me.gabryosas.listeners.OnPlayerInteractComputer;
 import me.gabryosas.listeners.inventory.OnInventoryClickCassa;
 import me.gabryosas.listeners.inventory.OnInventoryClickFondi;
 import me.gabryosas.listeners.inventory.OnInventoryClickPlayerSelect;
 import me.gabryosas.storage.AziendeStorage;
 import me.gabryosas.storage.CasseStorage;
+import me.gabryosas.storage.ControllaStorage;
 import me.gabryosas.utils.TabCompleter;
+import me.gabryosas.utils.menu.ComputerMenu;
 import me.gabryosas.utils.menu.Menu;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.plugin.RegisteredServiceProvider;
@@ -20,6 +23,7 @@ public final class IthacaAziende extends JavaPlugin {
     public static IthacaAziende plugin;
     private AziendeStorage aziendeStorage;
     private CasseStorage casseStorage;
+    private ControllaStorage controlloStorage;
     @Override
     public void onEnable() {
         plugin = this;
@@ -37,6 +41,8 @@ public final class IthacaAziende extends JavaPlugin {
         casseStorage = new CasseStorage(this);
         casseStorage.createFile();
         casseStorage.checkDate();
+        controlloStorage = new ControllaStorage();
+        controlloStorage.createJSON();
     }
     public void registerListeners(){
         getServer().getPluginManager().registerEvents(new OnPlayerInteractCassa(), this);
@@ -45,6 +51,8 @@ public final class IthacaAziende extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new Menu(this), this);
         getServer().getPluginManager().registerEvents(new OnInventoryClickFondi(), this);
         getServer().getPluginManager().registerEvents(new OnBreakCassa(), this);
+        getServer().getPluginManager().registerEvents(new OnPlayerInteractComputer(), this);
+        getServer().getPluginManager().registerEvents(new ComputerMenu(), this);
     }
     public void registerCommands(){
         this.getCommand("aziende").setExecutor(new Aziende());

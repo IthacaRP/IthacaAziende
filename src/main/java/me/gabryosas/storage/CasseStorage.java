@@ -129,7 +129,7 @@ public class CasseStorage {
         int transactionCount = cassaSection.getKeys(false).size();
         return String.valueOf(transactionCount + 1);
     }
-    public String generateID () {
+    public static String generateID () {
         StringBuilder sb = new StringBuilder();
         Random rand = new Random();
         for (int i = 0; i < 3; i++) {
