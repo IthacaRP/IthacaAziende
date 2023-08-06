@@ -7,7 +7,6 @@
 # Librerie usate:
 ```xml
     <repositories>
-
         <repository>
             <id>spigotmc-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
@@ -64,7 +63,6 @@
             <artifactId>gson</artifactId>
             <version>2.10.1</version>
         </dependency>
-
     </dependencies>
 
 ```
