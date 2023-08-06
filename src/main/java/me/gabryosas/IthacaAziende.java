@@ -43,6 +43,7 @@ public final class IthacaAziende extends JavaPlugin {
         casseStorage.checkDate();
         controlloStorage = new ControllaStorage();
         controlloStorage.createJSON();
+        getServer().getConsoleSender().sendMessage("§aPlugin abilitato con successo!");
     }
     public void registerListeners(){
         getServer().getPluginManager().registerEvents(new OnPlayerInteractCassa(), this);
@@ -53,17 +54,20 @@ public final class IthacaAziende extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new OnBreakCassa(), this);
         getServer().getPluginManager().registerEvents(new OnPlayerInteractComputer(), this);
         getServer().getPluginManager().registerEvents(new ComputerMenu(), this);
+        getServer().getConsoleSender().sendMessage("§AEventi caricati con successo!");
     }
     public void registerCommands(){
         this.getCommand("aziende").setExecutor(new Aziende());
         this.getCommand("stipedio").setExecutor(new Stipendio());
+        getServer().getConsoleSender().sendMessage("§AComandi caricati con successo!");
     }
     public void registerTabCompleter(){
         this.getCommand("aziende").setTabCompleter(new TabCompleter());
+        getServer().getConsoleSender().sendMessage("§ATabCompleter caricato con successo!");
     }
     @Override
     public void onDisable() {
-
+        getServer().getConsoleSender().sendMessage("§cPlugin disabilitato con successo!");
     }
     public static boolean isInt(String value){
         try {
