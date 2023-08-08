@@ -6,6 +6,7 @@ import me.gabryosas.storage.CasseStorage;
 import me.gabryosas.utils.ConfigUtils;
 import me.gabryosas.utils.internal.Date;
 import me.gabryosas.utils.objects.gui.ScontrinoGUI;
+import me.gabryosas.utils.vault.VaultUtils;
 import net.md_5.bungee.api.ChatColor;
 import net.wesjd.anvilgui.AnvilGUI;
 import org.bukkit.Bukkit;
@@ -49,6 +50,11 @@ public class OnInventoryClickPlayerSelect implements Listener {
                     player.sendMessage(ConfigUtils.ERROR_NUMBER);
                     return AnvilGUI.Response.close();
                 }
+                if (!VaultUtils.checkMoney(player, Integer.parseInt(prezzo))){
+                    player.sendMessage(ConfigUtils.FAIL_DEPOSITARE);
+                    return AnvilGUI.Response.close();
+                }
+                VaultUtils.removeMoney(player, Integer.parseInt(prezzo));
                 player.getInventory().addItem(me.gabryosas.utils.internal.ItemStack.createCostumItem(ScontrinoGUI.getMaterialScontrino(), ScontrinoGUI.getName(OnPlayerInteractCassa.aziendaHashMap.get(player)),ScontrinoGUI.getModelData(), ScontrinoGUI.getLore(Date.getDate(), target.getName(), player.getName(), Integer.parseInt(prezzo), oggetti), 2));
                 casseStorage.addTransazione(casseStorage.getID(OnPlayerInteractCassa.getIDCassa.get(player)), player.getName(), Double.parseDouble(prezzo), oggetti, Date.getDate());
                 player.sendMessage(ConfigUtils.CREATE_SCONTRINO);
