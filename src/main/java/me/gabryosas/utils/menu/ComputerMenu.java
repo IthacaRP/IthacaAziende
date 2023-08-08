@@ -33,7 +33,8 @@ public class ComputerMenu implements Listener {
             int importo = itemData.get("Importo").getAsInt();
             String autore = itemData.get("Autore").getAsString();
             String data = itemData.get("Data").getAsString();
-            ItemStack item = me.gabryosas.utils.internal.ItemStack.createCostumItem(Controllo.getMaterial(), Controllo.getName(autore, OnPlayerInteractComputer.controlloHashMap.get(player), data, id, importo), Controllo.getModelData(), Controllo.getLore(autore, OnPlayerInteractComputer.controlloHashMap.get(player), data, id, importo));
+            String azione = itemData.get("Azione").getAsString();
+            ItemStack item = me.gabryosas.utils.internal.ItemStack.createCostumItem(Controllo.getMaterial(), Controllo.getName(autore, OnPlayerInteractComputer.controlloHashMap.get(player), data, id, importo, azione), Controllo.getModelData(), Controllo.getLore(autore, OnPlayerInteractComputer.controlloHashMap.get(player), data, id, importo, azione));
             inventory.setItem(slot, item);
             slot++;
         }

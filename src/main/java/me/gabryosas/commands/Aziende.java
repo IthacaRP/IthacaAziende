@@ -183,7 +183,7 @@ public class Aziende implements CommandExecutor {
                     player.sendMessage(ConfigUtils.FAIL_DEPOSITARE);
                     return true;
                 }
-                controllaStorage.addControllo(args[1].toLowerCase(), Integer.parseInt(args[2]), player.getName(), "Deposito");
+                controllaStorage.addControllo(args[1].toLowerCase(), Integer.parseInt(args[2]), player.getName(), IthacaAziende.plugin.getConfig().getString("Items.controllo.azione.Prelievo"));
                 VaultUtils.removeMoney(player, Integer.parseInt(args[2]));
                 aziendeStorage.addMoney(args[1].toLowerCase(), Integer.parseInt(args[2]));
                 player.sendMessage(ConfigUtils.onDepositare(args[1], Integer.parseInt(args[2])));
@@ -205,7 +205,7 @@ public class Aziende implements CommandExecutor {
                     player.sendMessage(ConfigUtils.FAIL_PRELEVARE);
                     return true;
                 }
-                controllaStorage.addControllo(args[1].toLowerCase(), Integer.parseInt(args[2]), player.getName(), "Prelevo");
+                controllaStorage.addControllo(args[1].toLowerCase(), Integer.parseInt(args[2]), player.getName(), IthacaAziende.plugin.getConfig().getString("Items.controllo.azione.Prelievo"));
                 VaultUtils.addMoney(player, Integer.parseInt(args[2]));
                 aziendeStorage.removeMoney(args[1].toLowerCase(), Integer.parseInt(args[2]));
                 player.sendMessage(ConfigUtils.onPrelevare(args[1], Integer.parseInt(args[2])));

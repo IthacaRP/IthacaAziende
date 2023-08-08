@@ -87,7 +87,7 @@ Items:
     Name-2: "Seleziona l'azienda."
     Max-Slot: 27
     azione:
-      Importo: "&eImporto"
+      Prelievo: "&ePrelievo"
       Deposito: "&eDeposito"
     oggetti:
       Successiva:
@@ -105,13 +105,14 @@ Items:
         Lore:
           - "&7Cliccami per andare a pagina precedente!"
       Controllo:
-        Name: "&f%id%" #Si prega di aggiungere sempre l'id nell'items
+        Name: "&f%id% %azione%" #Si prega di aggiungere sempre l'id nell'items
         Item: PAPER
         Custom-Model-Data: 1
         Lore:
           - "&7Data: &e%data%"
           - "&7Autore: &e%autore%"
           - "&7Importo: &e%importo%"
+          - "&7Azione: &e%azione%"
   oggetti:
     cassa:
       Item: PRISMARINE_STAIRS

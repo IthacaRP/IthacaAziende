@@ -16,8 +16,8 @@ public class Controllo {
         return Color.translateHexColorCodes(IthacaAziende.plugin.getConfig().getString("Items.controllo.Name-2"));
     }
     //Item
-    public static String getName(String autore, String azienda, String data, String id, int prezzo){
-        return Color.translateHexColorCodes(IthacaAziende.plugin.getConfig().getString("Items.controllo.oggetti.Controllo.Name").replace("%autore%", autore).replace("%azienda%", azienda).replace("%data%", data).replace("%id%", id).replace("%importo%", String.valueOf(prezzo)));
+    public static String getName(String autore, String azienda, String data, String id, int prezzo, String azione){
+        return Color.translateHexColorCodes(IthacaAziende.plugin.getConfig().getString("Items.controllo.oggetti.Controllo.Name").replace("%autore%", autore).replace("%azienda%", azienda).replace("%data%", data).replace("%id%", id).replace("%importo%", String.valueOf(prezzo)).replace("%azione%", azione));
     }
     public static Material getMaterial(){
         return Material.valueOf(IthacaAziende.plugin.getConfig().getString("Items.controllo.oggetti.Controllo.Item"));
@@ -26,12 +26,12 @@ public class Controllo {
         return IthacaAziende.plugin.getConfig().getInt("Items.controllo.oggetti.Controllo.Custom-Model-Data");
     }
     //Per un bug ho dovuto cambiare codice (di poco)
-    public static List<String> getLore(String autore, String azienda, String data, String id, int prezzo) {
+    public static List<String> getLore(String autore, String azienda, String data, String id, int prezzo, String azione) {
         FileConfiguration config = IthacaAziende.plugin.getConfig();
         List<String> lore = config.getStringList("Items.controllo.oggetti.Controllo.Lore");
         List<String> translatedLore = new ArrayList<>();
         for (String line : lore) {
-            String translated = Color.translateHexColorCodes(line).replace("%autore%", autore).replace("%azienda%", azienda).replace("%data%", data).replace("%id%", id).replace("%importo%", String.valueOf(prezzo));
+            String translated = Color.translateHexColorCodes(line).replace("%autore%", autore).replace("%azienda%", azienda).replace("%data%", data).replace("%id%", id).replace("%importo%", String.valueOf(prezzo)).replace("%azione%", Color.translateHexColorCodes(azione));
             translatedLore.add(translated);
         }
         return translatedLore;
